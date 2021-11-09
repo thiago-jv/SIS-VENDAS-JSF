@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Configurações da conexão com o Banco Mysql Inicio-->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/vendas</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!--Configurações da conexão com o Banco Mysql Fim-->
+		
+		
+		<!-- Configurações da conexão com o Banco PostgreSql Inicio
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost/vendas</property>
+   		<property name="connection.username">postgres</property>
+   		<property name="connection.password">root</property>
+   		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		Configurações da conexão com o Banco PostgreSql Fim-->
+		
+		
+		<!-- Configurações da conexão com o Banco Oracle Inicio
+		<property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:vendas</property>
+        <property name="connection.username">user</property>
+        <property name="connection.password">pass</property>
+        <property name="dialect">org.hibernate.dialect.Oracle8iDialect</property>
+        Configurações da conexão com o Banco PostgreSql Fim-->
+		
+		<!-- Gerenciamento da sessão -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Desabilita o cache -->
+		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<!-- Exibe os comando SQL -->
+		<property name="show_sql">true</property>
+		<!-- Criação das tabelas -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<mapping class="br.com.Vendas.domain.Fornecedor" />
+		<mapping class="br.com.Vendas.domain.Funcionario" />
+		<mapping class="br.com.Vendas.domain.Produto" />
+		<mapping class="br.com.Vendas.domain.Vendas" />
+		<mapping class="br.com.Vendas.domain.Item" />
+		
+	</session-factory>
+</hibernate-configuration>
